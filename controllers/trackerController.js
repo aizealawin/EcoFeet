@@ -5,7 +5,7 @@ const postTracker = async (req, res) => {
     const tracker = await new Tracker(req.body)
     await tracker.save()
     return res.status(201).json({
-      food
+      tracker
     })
   } catch (error) {
     return res.status(500).json({error: error.message})
@@ -14,7 +14,7 @@ const postTracker = async (req, res) => {
 
 const getAllTrackers = async (req, res) => {
   try {
-    const tracker = await Food.find()
+    const tracker = await Tracker.find()
     return res.status(200).json({
       tracker
     })
@@ -24,8 +24,8 @@ const getAllTrackers = async (req, res) => {
 }
 
 
-modeule.exports = {
+module.exports = {
   postTracker,
   getAllTrackers,
-  
+
 }
